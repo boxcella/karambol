@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>503 サービス利用不可</title>
+  <style>
+    :root{--bg:#f6f8fb;--card:#ffffff;--muted:#6b7280;--accent:#0ea5a4;--shadow:rgba(15,23,42,0.08)}
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0b1220;--card:#071022;--muted:#9aa6b2;--accent:#34d399;--shadow:rgba(2,6,23,0.7)}
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,var(--bg),#ffffff); color:#0f172a; display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px}
+    .card{background:var(--card); width:100%; max-width:980px; border-radius:14px; box-shadow:0 8px 30px var(--shadow); padding:32px; display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center}
+    .left{padding:8px}
+    h1{font-size:40px; margin:0 0 8px; letter-spacing:-0.02em}
+    p.lead{margin:0 0 18px; color:var(--muted); font-size:15px}
+    .meta{display:flex; gap:12px; align-items:center; margin-top:12px}
+    .btn{display:inline-flex; gap:10px; align-items:center; padding:10px 16px; background:var(--accent); color:white; border-radius:10px; text-decoration:none; font-weight:600; box-shadow:0 6px 18px rgba(14,165,164,0.18)}
+    .btn.secondary{background:transparent; color:var(--muted); border:1px solid rgba(15,23,42,0.06)}
+    .code{background:#f3f4f6; padding:10px 12px; border-radius:8px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; color:#111827; font-size:13px}
+    .illustration{display:flex; align-items:center; justify-content:center}
+    .illustration svg{max-width:100%; height:auto}
+    footer.note{margin-top:18px; color:var(--muted); font-size:13px}
+
+    /* small screens */
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr; padding:22px}
+      .illustration{order:-1}
+      h1{font-size:28px}
+    }
+
+    /* subtle floating animation */
+    .float-slow{animation:float 6s ease-in-out infinite}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <section class="left">
+      <h1 id="title">503 — サービス利用不可</h1>
+      <p class="lead">申し訳ありません。現在サーバーがリクエストを処理できません。メンテナンス中またはアクセス集中が発生しています。</p>
+
+      <div class="meta">
+        <a class="btn" href="javascript:location.reload();" aria-label="ページを再読み込み">再読み込み</a>
+        <a class="btn secondary" href="/" aria-label="ホームに戻る">ホームに戻る</a>
+      </div>
+
+      <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; align-items:center">
+        <div class="code">ステータス: 503</div>
+        <div class="code">再試行まで: 120秒</div>
+      </div>
+
+      <footer class="note">問題が続く場合は <a href="mailto:support@yourdomain.com">support@yourdomain.com</a> までご連絡ください。ご不便をおかけして申し訳ありません。</footer>
+    </section>
+
+    <aside class="illustration">
+      <!-- Friendly server illustration -->
+      <svg class="float-slow" width="420" height="300" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="サーバーエラーのイラスト">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#60a5fa" stop-opacity="0.95" />
+            <stop offset="1" stop-color="#34d399" stop-opacity="0.95" />
+          </linearGradient>
+          <linearGradient id="g2" x1="0" x2="1">
+            <stop offset="0" stop-color="#eef2ff" />
+            <stop offset="1" stop-color="#fef3c7" />
+          </linearGradient>
+        </defs>
+        <rect x="28" y="38" width="364" height="224" rx="18" fill="url(#g2)" stroke="rgba(15,23,42,0.06)" />
+        <rect x="64" y="72" width="292" height="152" rx="12" fill="#fff" stroke="rgba(15,23,42,0.06)" />
+
+        <!-- server racks -->
+        <g transform="translate(88,96)">
+          <rect x="0" y="0" width="240" height="28" rx="6" fill="#f8fafc" stroke="rgba(2,6,23,0.04)" />
+          <rect x="0" y="44" width="240" height="28" rx="6" fill="#f8fafc" stroke="rgba(2,6,23,0.04)" />
+          <circle cx="208" cy="14" r="6" fill="url(#g1)" />
+          <circle cx="208" cy="58" r="6" fill="#f97316" />
+        </g>
+
+        <!-- sad cloud -->
+        <g transform="translate(40,30)">
+          <ellipse cx="312" cy="32" rx="40" ry="26" fill="#e6eef9" />
+          <path d="M286 42c6 9 20 14 34 10" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+          <text x="280" y="50" font-family="Inter, Arial" font-size="18" fill="#475569">あぁ…</text>
+        </g>
+
+        <!-- broken gear -->
+        <g transform="translate(40,160)">
+          <circle cx="50" cy="40" r="26" fill="#f1f5f9" stroke="rgba(2,6,23,0.04)" />
+          <path d="M50 22 L50 58 M36 36 L64 36 M40 28 L60 52 M40 52 L60 28" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+        </g>
+
+        <!-- small 503 label -->
+        <text x="52" y="270" font-family="Inter, Arial" font-size="18" fill="#374151" font-weight="600">すぐに戻ります — 503</text>
+      </svg>
+    </aside>
+  </main>
+</body>
+</html>
